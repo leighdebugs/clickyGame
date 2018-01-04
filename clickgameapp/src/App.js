@@ -42,8 +42,6 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-
-      <Title msg = {this.state.msg} color = {this.state.color} score = {this.state.score} highScore = {this.state.highScore} />
       {this.state.cardtraits.map(cardtrait => (
         <Cards
           clicked={this.clicked}
@@ -51,7 +49,6 @@ class App extends Component {
           key={cardtrait.id}
           image={cardtrait.image}
           />
-
           ))}
       </Wrapper>
       );
