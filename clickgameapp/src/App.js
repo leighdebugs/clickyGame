@@ -6,38 +6,26 @@ import cardtraits from "./cardtraits.json";
 import "./App.css";
 
 class App extends Component {
-  // set this.state.cards to json array
+  // set initial values
   state = {
     cardtraits,
     score : 0,
     highScore : 0,
-    clicked: [],
-    msg : "Click on an image to begin!",
-    color: "#ffffff"
+    clicked: "",
   };
 
-  clicked = id => {
-    if (this.state.clicked.indexOf(id) === -1) {
-      this.setState({ msg: "Correct!", color: "#ffffff" });
-      const newScore = this.state.score + 1;
-      this.setState({ score: newScore, clicked: this.state.clicked.concat(id) });
-      if (newScore >= this.state.highScore) {
-        this.setState({ topScore: newScore });
-      };
-    }else{
-      this.setState({ score: 0, clicked: [], msg: "Sorry, that is incorrect!", color: "#ffffff" });
-    };
+  // handle input change
+  handleInputChange = event => {
+    // get name and value of input
+    const { name, value } = event.target;
 
-    const newCards = this.state.cardtraits
-    for (var i in newCards) {
-      newCards[i].random = Math.random()
-    };
+    // update input state
+    this.setState({
+      [name]: value
+    })
+  }
 
-    newCards.sort(function(a, b) {
-      return a.random - b.random;
-    });
-    this.setState({ cardtraits : newCards })
-  };
+ 
 
   render() {
     return (
