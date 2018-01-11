@@ -11,18 +11,20 @@ class App extends Component {
     cardtraits,
     score : 0,
     highScore : 0,
-    clicked: "",
   };
 
   // handle input change
   handleInputChange = event => {
     // get name and value of input
     const { name, value } = event.target;
-
     // update input state
     this.setState({
       [name]: value
     })
+  };
+
+  renderPage = () {
+    if ()
   }
 
  
