@@ -13,19 +13,22 @@ class App extends Component {
     highScore : 0,
   };
 
-  // handle input change
-  handleInputChange = event => {
-    // get name and value of input
-    const { name, value } = event.target;
-    // update input state
-    this.setState({
-      [name]: value
-    })
-  };
+  // // handle input change
+  // handleInputChange = event => {
+  //   // get name and value of input
+  //   const { name, value } = event.target;
+  //   // update input state
+  //   this.setState({
+  //     [name]: value
+  //   });
 
-  renderPage = () {
-    if ()
+  shuffleCards = id => {
+    // randomize cards
+    const cardtraits = this.state.cardtraits.filter(cardtrait => Math.random()*cardtraits.length);
+    this.setState({ cardtraits });
   }
+
+
 
  
 
@@ -34,6 +37,7 @@ class App extends Component {
       <Wrapper>
       {this.state.cardtraits.map(cardtrait => (
         <Cards
+          shuffleCards={this.shuffleCards}
           clicked={this.clicked}
           id={cardtrait.id}
           key={cardtrait.id}
